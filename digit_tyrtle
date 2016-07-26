@@ -1,0 +1,288 @@
+import turtle
+from math import sin
+
+t = turtle.Turtle()
+t.shape("turtle")
+t.color("darkgreen", "yellow")
+t.shapesize(2)
+t.speed(10)
+
+def main():
+    t.penup()
+    t.backward(200)
+    x=str(input('Введите число'))
+    for  i in range(len(x)):
+        if x[i]== '0':
+            digit_zero(50)
+            t.forward(30)
+        elif x[i] == '1':
+            digit_one(50)
+            t.forward(30)
+        elif x[i]== '2':
+            digit_two(50)
+            t.forward(30)
+        elif x[i]  == '3':
+            digit_three(50)
+            t.forward(30)
+        elif x[i] == '4':
+            digit_fore(50)
+            t.forward(30)
+        elif x[i] == '5':
+            digit_five(50)
+            t.forward(30)
+        elif x[i] == '6':
+            digit_six(50)
+            t.forward(30)
+        elif x[i] == '7':
+            digit_seven(50)
+            t.forward(30)
+        elif x[i] == '8':
+            digit_eight(50)
+            t.forward(30)
+        else:
+                digit_nine(50)
+                t.forward(30)
+
+    t.hideturtle()
+
+
+
+def digit_one(length):
+    """ Рисует цифру с высотой length
+        слева от направления черепашки
+        контракт (договорённость):
+            черепаха возвращается в исходную точку
+            и имеет исходную ориентацию
+            перо оказывается поднятым по окончании функции
+    """
+    t.penup()
+    t.forward(length/2)
+    t.pendown()
+    t.left(90)
+    t.forward(length)
+    t.left(90+45)
+    t.forward(length*sin(45*3.141592/180))
+    #обратный ход
+    t.backward(length*sin(45*3.141592/180))
+    t.right(90+45)
+    t.backward(length)
+    t.right(90)
+    t.penup()
+
+def digit_two(length):
+    """ Рисует цифру с высотой length
+        слева от направления черепашки
+        контракт (договорённость):
+            черепаха возвращается в исходную точку
+            и имеет исходную ориентацию
+            перо оказывается поднятым по окончании функции
+    """
+    L1 = length/2
+    L2 = (length/2)*2**0.5
+    B = [180, -135, 45, 90]
+    A = [ L1,   L2, L1, L1]
+
+    t.penup()
+    t.forward(L1)
+    t.pendown()
+    for length, degree in zip(A, B):
+        t.left(degree)
+        t.forward(length)
+    A.reverse()
+    B.reverse()
+    for length, degree in zip(A, B):
+        t.backward(length)
+        t.right(degree)
+    t.penup()
+def digit_three(length):
+    """ Рисует цифру 3 с  высотой length
+        слева от направления черепашки
+        контракт (договорённость):
+            черепаха возвращается в исходную точку
+            и имеет исходную ориентацию
+            перо оказывается поднятым по окончании функции
+    """
+    L1 = length/2
+    L2 = (length/2)*2**0.5
+    B = [ 45, 135, -135, 135]
+    A = [L2, L1, L2,L1]
+
+    t.pendown()
+    for length, degree in zip(A, B):
+        t.left(degree)
+        t.forward(length)
+    A.reverse()
+    B.reverse()
+    for length, degree in zip(A, B):
+        t.backward(length)
+        t.right(degree)
+
+    t.penup()
+def digit_fore(length):
+    """ Рисует цифру  4 высотой length
+        слева от направления черепашки
+        контракт (договорённость):
+            черепаха возвращается в исходную точку
+            и имеет исходную ориентацию
+            перо оказывается поднятым по окончании функции
+    """
+    L1 = length
+    L2 = length/2
+    B = [90,  180, -90, -90]
+    A = [ L1,L2, L2,L2]
+    t.penup()
+    t.forward(L1)
+    t.pendown()
+    for length, degree in zip(A, B):
+        t.left(degree)
+        t.forward(length)
+    A.reverse()
+    B.reverse()
+    for length, degree in zip(A, B):
+        t.backward(length)
+        t.right(degree)
+
+    t.penup()
+def digit_five(length):
+    """ Рисует цифру  5 высотой length
+        слева от направления черепашки
+        контракт (договорённость):
+            черепаха возвращается в исходную точку
+            и имеет исходную ориентацию
+            перо оказывается поднятым по окончании функции
+    """
+    L1 = length
+    L2 = length/2
+    B = [0,  90, 90, -90, -90]
+    A = [L2, L2, L2, L2, L2]
+
+
+    t.pendown()
+    for length, degree in zip(A, B):
+        t.left(degree)
+        t.forward(length)
+    A.reverse()
+    B.reverse()
+    for length, degree in zip(A, B):
+        t.backward(length)
+        t.right(degree)
+    t.penup()
+    t.forward(L2)
+def digit_six(length):
+    """ Рисует цифру  6 высотой length
+        слева от направления черепашки
+        контракт (договорённость):
+            черепаха возвращается в исходную точку
+            и имеет исходную ориентацию
+            перо оказывается поднятым по окончании функции
+    """
+    L1 = length/2
+    L2 = (length/2)*2**0.5
+    B = [ 0, 90, 90,90,180, -45]
+    A = [L1, L1, L1, L1, L1, L2]
+
+    t.pendown()
+    for length, degree in zip(A, B):
+        t.left(degree)
+        t.forward(length)
+    A.reverse()
+    B.reverse()
+    for length, degree in zip(A, B):
+        t.backward(length)
+        t.right(degree)
+    t.forward(L1)
+
+    t.penup()
+def digit_seven(length):
+    """ Рисует цифру  7 высотой length
+        слева от направления черепашки
+        контракт (договорённость):
+            черепаха возвращается в исходную точку
+            и имеет исходную ориентацию
+            перо оказывается поднятым по окончании функции
+    """
+    L1 = length/2
+    L2 = (length/2)*2**0.5
+    B = [ 90, -45,135]
+    A = [L1, L2, L1]
+
+    t.pendown()
+    for length, degree in zip(A, B):
+        t.left(degree)
+        t.forward(length)
+    A.reverse()
+    B.reverse()
+    for length, degree in zip(A, B):
+        t.backward(length)
+        t.right(degree)
+
+    t.penup()
+    t.forward(L1)
+def digit_eight(length):
+    """ Рисует цифру  8 высотой length
+        слева от направления черепашки
+        контракт (договорённость):
+            черепаха возвращается в исходную точку
+            и имеет исходную ориентацию
+            перо оказывается поднятым по окончании функции
+    """
+    L1 = length
+    L2 = length/2
+    B = [0, 90, 90, -90, -90, -90, -90, 90,90]
+    A = [L2,L2, L2,  L2,  L2,  L2, L2, L2, L2]
+    t.pendown()
+    for length, degree in zip(A, B):
+        t.left(degree)
+        t.forward(length)
+
+    t.penup()
+def digit_nine(length):
+    """ Рисует цифру  9 высотой length
+        слева от направления черепашки
+        контракт (договорённость):
+            черепаха возвращается в исходную точку
+            и имеет исходную ориентацию
+            перо оказывается поднятым по окончании функции
+    """
+    L1 = length/2
+    L2 = (length/2)*2**0.5
+    B = [45, 135, -90,-90,-90, -45, 135]
+    A = [L2, L1, L1, L1, L1, L2, 0]
+
+    t.pendown()
+    for length, degree in zip(A, B):
+        t.left(degree)
+        t.forward(length)
+
+
+    t.penup()
+    t.forward(L1)
+def digit_zero(length):
+    """ Рисует цифру  0 высотой length
+        слева от направления черепашки
+        контракт (договорённость):
+            черепаха возвращается в исходную точку
+            и имеет исходную ориентацию
+            перо оказывается поднятым по окончании функции
+    """
+    L1 = length
+    L2 = length/2
+    B = [0, 90,  90, 90, 90]
+    A = [ L2, L1,L2, L1,L2]
+    t.pendown()
+    for length, degree in zip(A, B):
+        t.left(degree)
+        t.forward(length)
+    t.penup()
+
+
+main()
+
+#t.left(30)
+#t.right(30)
+#t.forward(200)
+#t.backward(200)
+#t.penup()
+#t.pendown()
+#t.begin_fill()
+#t.end_fill()
